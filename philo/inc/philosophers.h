@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 14:24:45 by falarm            #+#    #+#             */
-/*   Updated: 2022/05/22 20:54:08 by falarm           ###   ########.fr       */
+/*   Updated: 2022/05/22 21:46:43 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,20 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <sys/time.h>
 
 typedef struct s_philo
 {
-	int			id;
-	int			time_to_die;
-	int			time_to_eat;
-	int			time_to_sleep;
-	int			count_eat;
-	int			left_fork;
-	int			right_fork;
-	long long	time_start;
-	long long	last_eat;
-	t_table		*args;
+	int				id;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				count_eat;
+	int				left_fork;
+	int				right_fork;
+	long long		time_start;
+	long long		last_eat;
+	struct s_table	*table;
 }	t_philo;
 
 typedef struct s_table
@@ -69,7 +70,7 @@ void		thinking(t_table *table, t_philo *philo);
 
 //main
 void		start(t_table *table);
-void		philo_life(void *data);
-void		death(void *data);
+void		*philo_life(void *data);
+void		*death(void *data);
 
 #endif

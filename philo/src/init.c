@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 19:13:17 by falarm            #+#    #+#             */
-/*   Updated: 2022/05/22 20:18:38 by falarm           ###   ########.fr       */
+/*   Updated: 2022/05/22 21:07:46 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int	init_philo(t_table *table, int ac, char **av)
 			table->philo[i].right_fork = 0;
 		table->philo[i].time_start = 0;
 		table->philo[i].last_eat = 0;
+		table->philo[i].table = table;
 	}
 	i = -1;
 	while (++i < table->count_philo)

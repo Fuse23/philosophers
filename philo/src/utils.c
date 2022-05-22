@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 19:03:32 by falarm            #+#    #+#             */
-/*   Updated: 2022/05/22 20:51:16 by falarm           ###   ########.fr       */
+/*   Updated: 2022/05/22 21:45:56 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ long long	get_timestamp(void)
 	struct timeval	t;
 	long long		now;
 
-	gettimeofday (&t, NULL);
+	gettimeofday(&t, NULL);
 	now = ((t.tv_sec * 1000) + (t.tv_usec / 1000));
 	return (now);
 }
