@@ -44,22 +44,9 @@ int	eating(t_table *table, t_philo *philo)
 	philo_print(table, philo, "is eating");
 	philo->count_eat++;
 	philo->last_eat = get_timestamp();
+	ft_usleep(philo->time_to_eat);
 	pthread_mutex_unlock(&table->fork[philo->left_fork]);
 	pthread_mutex_unlock(&table->fork[philo->right_fork]);
-
-	// pthread_mutex_lock(&table->fork[philo->left_fork]);
-	// philo_print(table, philo, "has taken a fork");
-	// if (table->count_philo == 1)
-	// 	return (pthread_mutex_unlock(\
-	// 		&table->fork[table ->philo->left_fork]), 1);
-	// pthread_mutex_lock(&table->fork[philo->right_fork]);
-	// philo_print(table, philo, "has taken a fork");
-	// philo_print(table, philo, "is eating");
-	// philo->count_eat++;
-	// philo->last_eat = get_timestamp();
-	// ft_usleep(philo->time_to_eat);
-	// pthread_mutex_unlock(&table->fork[philo->left_fork]);
-	// pthread_mutex_unlock(&table->fork[philo->right_fork]);
 	return (0);
 }
 
