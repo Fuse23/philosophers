@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 19:13:17 by falarm            #+#    #+#             */
-/*   Updated: 2022/05/22 21:07:46 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/01 18:02:18 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ t_table	*init_table(int ac, char **av)
 	if (!table)
 		return (NULL);
 	table->count_philo = ft_atoi(av[1]);
-	table->time_to_die = ft_atoi(av[2]);
-	table->time_to_eat = ft_atoi(av[3]);
-	table->time_to_sleep = ft_atoi(av[4]);
 	table->count_of_eat = 0;
 	if (ac == 6)
 		table->count_of_eat = ft_atoi(av[5]);
@@ -66,7 +63,7 @@ int	malloc_philo(t_table *table)
 	return (0);
 }
 
-int	init_philo(t_table *table, int ac, char **av)
+int	init_philo(t_table *table, char **av)
 {
 	int	i;
 
@@ -78,8 +75,6 @@ int	init_philo(t_table *table, int ac, char **av)
 		table->philo[i].time_to_eat = ft_atoi(av[3]);
 		table->philo[i].time_to_sleep = ft_atoi(av[4]);
 		table->philo[i].count_eat = 0;
-		if (ac == 6)
-			table->philo[i].count_eat = ft_atoi(av[5]);
 		table->philo[i].left_fork = i;
 		if (i < table->count_philo - 1)
 			table->philo[i].right_fork = i + 1;

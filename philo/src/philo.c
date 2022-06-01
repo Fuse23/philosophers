@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 20:28:28 by falarm            #+#    #+#             */
-/*   Updated: 2022/05/22 21:57:48 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/01 18:23:08 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ int	eating(t_table *table, t_philo *philo)
 		pthread_mutex_lock(&table->fork[philo->right_fork]);
 	philo_print(table, philo, "has taken a fork");
 	if (table->count_philo == 1)
-		return (pthread_mutex_unlock(\
-			&table->fork[table ->philo->left_fork]), 1);
+	{
+		pthread_mutex_unlock(&table->fork[table->philo->left_fork]);
+		return (1);
+	}
 	if (philo->left_fork < philo->right_fork)
 		pthread_mutex_lock(&table->fork[philo->right_fork]);
 	else

@@ -18,6 +18,8 @@ OBJECTS				=	$(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
 
 .PHONY: all clean fclean re
 
+all:	$(NAME)
+
 $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
 	$(CC) $(FLAGS) $(INCLUDES) $(OBJECTS) -o $(NAME)
 
@@ -33,6 +35,4 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re:
-	$(MAKE) fclean
-	$(MAKE) all
+re:	fclean all

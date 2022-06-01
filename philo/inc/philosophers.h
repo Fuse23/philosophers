@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 14:24:45 by falarm            #+#    #+#             */
-/*   Updated: 2022/05/22 21:46:43 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/01 18:02:03 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ typedef struct s_philo
 typedef struct s_table
 {
 	int				count_philo;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
 	int				count_of_eat;
 	int				flag_of_death;
 	long long		time_start;
@@ -60,7 +57,7 @@ void		ft_usleep(long long time);
 t_table		*init_table(int ac, char **av);
 int			check(int ac, char **av);
 int			malloc_philo(t_table *table);
-int			init_philo(t_table *table, int ac, char **av);
+int			init_philo(t_table *table, char **av);
 
 //philo
 void		philo_print(t_table	*table, t_philo *philo, char *str);

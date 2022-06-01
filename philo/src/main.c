@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 14:23:21 by falarm            #+#    #+#             */
-/*   Updated: 2022/05/22 21:53:25 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/01 18:02:57 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ void	*death(void *data)
 			if (table->count_of_eat)
 				if (table->philo[i].count_eat == table->count_of_eat)
 					return (NULL);
-			if (get_timestamp() - table->philo[i].last_eat > table->time_to_die)
+			if (get_timestamp() - table->philo[i].last_eat
+				> table->philo[i].time_to_die)
 			{
 				table->flag_of_death = 1;
 				pthread_mutex_lock(&table->print);
 				printf("%lld %d is died\n",
-						get_timestamp() - table->philo[i].time_start, table->philo[i].id);
+					get_timestamp() - table->philo[i].time_start,
+					table->philo[i].id);
 				return (NULL);
 			}
 		}
@@ -42,7 +44,7 @@ void	*death(void *data)
 void	*philo_life(void *data)
 {
 	t_philo	*philo;
-	t_table *table;
+	t_table	*table;
 
 	philo = data;
 	table = philo->table;
@@ -98,8 +100,8 @@ int	main(int argc, char **argv)
 		return (1);
 	if (malloc_philo(table))
 		return (ft_free(table));
-	if (init_philo(table, argc, argv))
-		return(ft_free(table));
+	if (init_philo(table, argv))
+		return (ft_free(table));
 	start(table);
 	ft_destroy_mutex(table);
 	ft_free(table);
