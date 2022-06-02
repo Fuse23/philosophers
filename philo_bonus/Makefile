@@ -5,7 +5,7 @@ FLAGS 				=	-Wall -Werror -Wextra
 INCLUDES			=	-I$(HEADERS_DIRECTORY)
 
 SOURCES_DIRECTORY	=	./src/
-SOURCES_LIST		=	
+SOURCES_LIST		=	main_bonus.c	init_bonus.c	utils_bonus.c	philo_bonus.c
 SOURCES				=	$(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 HEADERS_DIRECTORY	=	./inc/
