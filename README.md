@@ -1,6 +1,6 @@
 # philosophers
 
-### [Subject](https://github.com/Fuse23/philosophers/blob/main/en.subject.pdf)
+### [subject](https://github.com/Fuse23/philosophers/blob/main/en.subject.pdf)
 
 
 
