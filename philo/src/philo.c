@@ -64,5 +64,5 @@ void	thinking(t_table *table, t_philo *philo)
 {
 	if (table->flag_of_death)
 		return ;
-	philo_print(table, philo, " is thinking");
+	philo_print(table, philo, "is thinking");
 }
