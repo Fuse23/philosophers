@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 19:55:18 by falarm            #+#    #+#             */
-/*   Updated: 2022/06/02 21:38:07 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/03 12:43:35 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ t_philo	*init_philo(int ac, char **av)
 
 	philo = malloc(sizeof(t_philo));
 	if (!philo)
+	{
+		printf("Error: malloc failed!\n");
 		return (NULL);
+	}
+	philo->id = 0;
 	philo->number = ft_atoi(av[1]);
 	philo->time_to_die = ft_atoi(av[2]);
 	philo->time_to_eat = ft_atoi(av[3]);

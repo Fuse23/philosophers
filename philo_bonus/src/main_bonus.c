@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 18:38:29 by falarm            #+#    #+#             */
-/*   Updated: 2022/06/02 21:37:17 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/03 14:59:19 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*check_death(void *data)
 {
 	t_philo	*philo;
 
-	philo = data;
+	philo = (t_philo *)data;
 	while (1)
 	{
 		if (philo->number_eat)
@@ -28,24 +28,25 @@ void	*check_death(void *data)
 			sem_wait(philo->print);
 			printf("%lld %d is died\n",
 				get_timestamp() - philo->time_start, philo->id);
+			sem_post(philo->print);
 			break ;
 		}
 	}
 	if (philo->death)
-		exit(1);
+		exit (1);
 	else
-		exit(0);
+		exit (0);
 }
 
 int	philo_life(t_philo *philo)
 {
 	if (pthread_create(&philo->check_death, NULL, &check_death, philo))
 	{
-		printf("Error: pthread create!\n");
+		printf("Error: pthread create failed!\n");
 		return (1);
 	}
 	if (philo->id % 2 == 0)
-		ft_usleep(50);
+		ft_usleep(500);
 	while (1)
 	{
 		if (philo->number_eat)
@@ -56,10 +57,16 @@ int	philo_life(t_philo *philo)
 	}
 	if (pthread_join(philo->check_death, NULL))
 	{
-		printf("Error: pthread join!\n");
+		printf("Error: pthread join feiled!\n");
 		return (1);
 	}
 	return (0);
+}
+
+int	func(char *str)
+{
+	printf("%s", str);
+	return (1);
 }
 
 int	start(t_philo *philo)
@@ -73,10 +80,7 @@ int	start(t_philo *philo)
 	{
 		philo->pid[i] = fork();
 		if (philo->pid[i] == -1)
-		{
-			printf("Error: fork!\n");
-			return (1);
-		}
+			return (func("Error: fork!\n"));
 		if (philo->pid[i] == 0)
 		{
 			philo->id = i + 1;
@@ -86,8 +90,10 @@ int	start(t_philo *philo)
 		}
 	}
 	while (waitpid(-1, &status, 0) > 0)
-		if (!WIFEXITED(status))
+	{
+		if (WIFEXITED(status))
 			return (killer(philo));
+	}
 	return (0);
 }
 

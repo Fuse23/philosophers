@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 21:17:04 by falarm            #+#    #+#             */
-/*   Updated: 2022/06/02 21:46:07 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/03 14:15:41 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_philo
 int			start(t_philo *philo);
 int			philo_life(t_philo *philo);
 void		*check_death(void *data);
+int			func(char *str);
 
 //utils_bonus
 long long	ft_atoi(const char *str);
