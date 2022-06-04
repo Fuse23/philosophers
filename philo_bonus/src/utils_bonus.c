@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 19:55:47 by falarm            #+#    #+#             */
-/*   Updated: 2022/06/03 14:28:20 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/04 16:43:15 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ int	killer(t_philo *philo)
 	i = -1;
 	while (++i < philo->number)
 		kill(philo->pid[i], SIGKILL);
-	return (1);
+	return (0);
 }

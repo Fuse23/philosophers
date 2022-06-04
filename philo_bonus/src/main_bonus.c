@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 18:38:29 by falarm            #+#    #+#             */
-/*   Updated: 2022/06/03 14:59:19 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/04 17:20:53 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*check_death(void *data)
 {
 	t_philo	*philo;
 
-	philo = (t_philo *)data;
+	philo = data;
 	while (1)
 	{
 		if (philo->number_eat)
@@ -28,7 +28,6 @@ void	*check_death(void *data)
 			sem_wait(philo->print);
 			printf("%lld %d is died\n",
 				get_timestamp() - philo->time_start, philo->id);
-			sem_post(philo->print);
 			break ;
 		}
 	}
@@ -46,7 +45,7 @@ int	philo_life(t_philo *philo)
 		return (1);
 	}
 	if (philo->id % 2 == 0)
-		ft_usleep(500);
+		usleep(500);
 	while (1)
 	{
 		if (philo->number_eat)

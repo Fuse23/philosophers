@@ -6,7 +6,7 @@
 /*   By: falarm <falarm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 21:17:04 by falarm            #+#    #+#             */
-/*   Updated: 2022/06/03 14:15:41 by falarm           ###   ########.fr       */
+/*   Updated: 2022/06/04 17:43:33 by falarm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,9 @@ void		philo_print(t_philo *philo, char *str);
 int			philo_eat(t_philo *philo);
 
 #endif
+
+//tests
+// ./philo_bonus 4 311 150 150							nobady die
+// ./philo_bonus 5 600 150 150							nobady die
+// ./philo_bonus 3 310 200 100							died
+// ./philo_bonus 11 290 100 100							died
