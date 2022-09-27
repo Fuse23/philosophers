@@ -1,9 +1,8 @@
-# philosophers
+## philosophers
 
-My score
+#Solving the problem of E. Dijkstra's [dining philosophers](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
 
-[![falarm's 42 Philosophers Score](https://badge42.vercel.app/api/v2/cl23rylyn001609lbgc4t4lzn/project/2589523)](https://github.com/JaeSeoKim/badge42)
-
-[subject](https://github.com/Fuse23/philosophers/blob/main/en.subject.pdf)
+There are two solutions to this problem in this project. In the first part, the problem is solved using threads. In the second part (bonus), the problem is solved using processes.
+The program outputs the time, the number of the philosopher and what he is doing at the moment. More information about the task and rules can be found in [subject](https://github.com/Fuse23/philosophers/blob/main/en.subject.pdf).
 
 ![image](https://user-images.githubusercontent.com/57636684/171910525-cbd6b959-4239-49d1-a831-4c8904d61286.png)
